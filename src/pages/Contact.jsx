@@ -6,6 +6,11 @@ import Loader from '../components/Loader';
 import useAlert from '../hooks/useAlert';
 import Alert from '../components/Alert';
 
+// Hardcoded EmailJS Credentials
+const EMAILJS_SERVICE_ID = 'service_d32p1zg';
+const EMAILJS_TEMPLATE_ID = 'template_69x1sqn';
+const EMAILJS_PUBLIC_KEY = 'Iu5oRBE3QM5rXv296';
+
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -35,16 +40,14 @@ const Contact = () => {
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
-          from_name: form.name,
-          to_name: 'Abhi & Mahant',
-          from_email: form.email,
-          to_email: 'contact@mahantmuchandikar@gmail.com',
+          name: form.name,
+          time: new Date().toLocaleString(), // Generates formatted current time for {{time}}
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         setIsLoading(false);
@@ -167,7 +170,7 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* 3D Canvas Container with Enhanced Pronounced Drop Shadow */}
+        {/* 3D Canvas Container */}
         <div className="w-full lg:w-1/2 h-[350px] sm:h-[400px] flex items-center justify-center relative filter drop-shadow-[0_30px_35px_rgba(0,0,0,0.15)]">
           <Canvas
             camera={{
