@@ -86,7 +86,7 @@ export default function ShowcaseSection() {
           </p>
 
           <a 
-            href="/contact"
+            href="/Contact"
             className="group relative flex items-center gap-3 bg-white text-[#e88d72] font-bold uppercase tracking-widest px-8 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.6)] active:scale-95 shadow-xl text-xs sm:text-sm no-underline"
           >
             <span className="relative z-10 flex items-center gap-2 font-black">
